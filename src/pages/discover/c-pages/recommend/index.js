@@ -1,46 +1,32 @@
-import React, { memo, useEffect } from 'react'
-import { useDispatch, useSelector, shallowEqual } from 'react-redux'
-// import { connect } from 'react-redux'
+import React, { memo } from 'react'
 
-import { getTopBannerAction } from './store/actionCreators'
+import LSTopBanner from './c-cpns/top-banner'
+import LSHotRecommend from './c-cpns/hot-recommend'
+import LSNewAlbum from './c-cpns/new-album'
+import LSRcmRanking from './c-cpns/rcm-ranking'
 
-function LSRecommond(props) {
-    const dispatch = useDispatch()
-    const topBanners = useSelector(state => state.recommend.get('topBanners'), shallowEqual)
+import {
+    RecommendWrapper,
+    ContentWrapper,
+    RecommendLeft,
+    RecommendRight
+} from './style'
 
-    useEffect(() => {
-        dispatch(getTopBannerAction())
-    }, [dispatch])
+export default memo(function LSRecommond(props) {
     return (
-        <div>
-            LSRecommond:{topBanners.length}
-        </div>
+        <RecommendWrapper>
+            <LSTopBanner />
+            <ContentWrapper className='wrap-v2'>
+                <RecommendLeft>
+                    <LSHotRecommend />
+                    <LSNewAlbum />
+                    <LSRcmRanking />
+                </RecommendLeft>
+                <RecommendRight>
+                    <h2>右边</h2>
+                </RecommendRight>
+            </ContentWrapper>
+        </RecommendWrapper>
     )
-}
+})
 
-export default memo(LSRecommond)
-
-// function LSRecommond(props) {
-//     const { getTopBanners } = props
-//     useEffect(() => {
-//         getTopBanners()
-//     }, [getTopBanners])
-
-//     return (
-//         <div>
-//             LSRecommond
-//         </div>
-//     )
-// }
-
-// const mapStateTopProps = state => ({
-//     topBanners: state.recommend.tonBanners
-// })
-
-// const mapDispatchToProps = (dispatch) => ({
-//     getTopBanners: () => {
-//         dispatch(getTopBannerAction())
-//     }
-// })
-
-// export default connect(mapStateTopProps, mapDispatchToProps)(memo(LSRecommond))
