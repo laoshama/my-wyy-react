@@ -1,4 +1,4 @@
-import React, { Fragment, memo } from 'react'
+import React, { memo } from 'react'
 
 import { getSizeIamge } from '@/utils/format_util'
 
@@ -19,11 +19,11 @@ export default memo(function LSRankItem(props) {
                 </div>
             </div>
             {
-                ranking.tracks.map((item, index) => {
+                ranking.tracks && ranking.tracks.map((item, index) => {
                     return (
                         <div className="rank-content-item" key={item.first}>
                             <div className="left">
-                                <div className="order">{index+1}</div>
+                                <div className="order">{index + 1}</div>
                                 <div className="song-name text-nowrap">{item.first}</div>
                             </div>
                             <div className="oprate">

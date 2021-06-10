@@ -11,3 +11,14 @@ export function getPlayCount(count) {
         return `${Math.floor(count / 10000 / 1000) / 10}亿`
     }
 }
+
+export function FormatSongTime(songTime) {
+    const second = Math.floor(songTime)
+    const s = second % 60
+    const m = Math.floor(second / 60)
+
+    let sString = s >= 10 ? s : ('0' + s)
+    let mString = m >= 10 ? m : ('0' + m)
+
+    return mString + ':' + sString
+}

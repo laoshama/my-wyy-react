@@ -83,7 +83,6 @@ export const RankingItemWrapper = styled.div`
             }
             
             .song-name {
-                width: 100px;
                 color:#000;
                 line-height: 32px;
             }
@@ -91,6 +90,7 @@ export const RankingItemWrapper = styled.div`
 
         :hover{
             .song-name{
+                width: 100px;
                 text-decoration: underline;
             }
 
