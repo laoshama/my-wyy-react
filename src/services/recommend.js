@@ -24,11 +24,8 @@ export const getNewAlbums = (limit) => {
     })
 }
 
-export const getRanking = (idx) => {
+export const getRanking = () => {
     return request({
-        url: '/top/list',
-        params: {
-            idx
-        }
+        url: '/toplist/detail',
     })
 }

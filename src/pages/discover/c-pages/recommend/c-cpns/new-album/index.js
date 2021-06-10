@@ -30,7 +30,7 @@ export default memo(function LSNewAlbum() {
                             return (
                                 <div key={item} className='banner-box'>
                                     {
-                                        newAlbums.slice(item * 5, (item + 1) * 5).map(iten => {
+                                        newAlbums && newAlbums.slice(item * 5, (item + 1) * 5).map(iten => {
                                             return <LSNewSongCoevr key={iten.picId}
                                                 width={118}
                                                 height={100}

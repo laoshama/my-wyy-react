@@ -39,7 +39,7 @@ a {
 }
 
 a:hover {
-    color: #666;
+    color          : #666;
     text-decoration: underline;
 }
 
@@ -143,4 +143,8 @@ button {
 
 .box_line {
     border-top: 1px solid #ccc;
+}
+
+.rank_bg {
+    background: url(../img/recommend-top-bg.png) no-repeat;
 }

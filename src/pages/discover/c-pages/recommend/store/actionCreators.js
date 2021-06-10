@@ -3,7 +3,8 @@ import * as actionTypes from './constants'
 import {
     getTopBanners,
     getHotRecommends,
-    getNewAlbums
+    getNewAlbums,
+    getRanking
 } from '@/services/recommend'
 
 const changeTopBanenrAction = (res) => ({
@@ -17,9 +18,16 @@ const changeHotRecommendsAction = (res) => ({
 })
 
 const changetNewAlbumsAction = (res) => ({
-    newAlbums: res.albums,
+    newAlbums: res.weekData,
     type: actionTypes.CHANGE_NEWALBUMS
 })
+
+const changeRankingAction = (res) => ({
+    rankings: res.list,
+    type: actionTypes.CHANGE_RANKING
+})
+
+
 
 export const getTopBannerAction = () => {
     return dispatch => {
@@ -28,6 +36,7 @@ export const getTopBannerAction = () => {
         })
     }
 }
+
 
 export const getHotRecommendsAction = (limit) => {
     return dispatch => {
@@ -41,6 +50,15 @@ export const getNewAlbumsAction = (limit) => {
     return dispatch => {
         getNewAlbums(limit).then(res => {
             dispatch(changetNewAlbumsAction(res))
+        })
+    }
+}
+
+export const getRankingAction = () => {
+    return dispatch => {
+        
+        getRanking().then(res => {
+            dispatch(changeRankingAction(res))
         })
     }
 }
