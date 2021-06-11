@@ -22,3 +22,7 @@ export function FormatSongTime(songTime) {
 
     return mString + ':' + sString
 }
+
+export function getRandomNum(num) {
+    return Math.floor(Math.random() * num)
+}
